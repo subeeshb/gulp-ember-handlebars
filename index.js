@@ -8,6 +8,9 @@ var stream = require('stream'),
 // Default name function returns the template filename without extension.
 var defaultProcessName = function (name) {
   var filename = path.basename(name);
+  if(name.indexOf('components') > -1) {
+    filename = 'components/' + filename;
+  } 
   var n = path.extname(filename).length;
   return n === 0 ? filename : filename.slice(0, -n);
 };
